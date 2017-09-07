@@ -1,0 +1,19 @@
+version: "2"
+services:
+  database:
+    build: ./docker
+    volumes:
+    - "~/.aws:/root/.aws"
+    - "./database:/tmp/src"
+    environment:
+    - "AWS_PROFILE=${AWS_PROFILE}"
+    - "NODE_ENV=${NODE_ENV}"
+
+  front-site:
+    build: ./docker
+    volumes:
+    - "~/.aws:/root/.aws"
+    - "./front-site:/tmp/src"
+    environment:
+    - "AWS_PROFILE=${AWS_PROFILE}"
+    - "NODE_ENV=${NODE_ENV}"
